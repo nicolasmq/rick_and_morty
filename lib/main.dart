@@ -1,7 +1,8 @@
 import 'package:choppi_prueba_tecnica/bloc/characters_bloc/characters_bloc.dart';
+import 'package:choppi_prueba_tecnica/bloc/episodes_bloc/episodes_bloc.dart';
 import 'package:choppi_prueba_tecnica/bloc/main_bloc/main_bloc.dart';
+import 'package:choppi_prueba_tecnica/bloc/search_bloc/search_character_bloc.dart';
 import 'package:choppi_prueba_tecnica/services/repository/rick_and_morty_repository.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,9 +20,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => MainBloc(RickAndMortyRepository()),),
-        BlocProvider(create: (context) => CharactersBloc(RickAndMortyRepository()),)
+        BlocProvider(create: (context) => CharactersBloc(RickAndMortyRepository()),),
+        BlocProvider(create: (context) => EpisodesBloc(RickAndMortyRepository()),),
+        BlocProvider(create: (context) => SearchCharacterBloc(RickAndMortyRepository()),)
       ],
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         routerConfig: GoNavigator.router,
       ),

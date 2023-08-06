@@ -5,33 +5,52 @@ abstract class CharactersState {
   final Character? character;
   final bool isLogged;
   final bool isLoading;
+  final double width;
+  final Character? filteredCharacter;
   int currentPage;
 
   CharactersState(
-      {this.character, this.isLogged = false, this.currentPage = 1, this.isLoading = false, });
+      {this.character,
+      this.isLogged = false,
+      this.currentPage = 1,
+      this.isLoading = false,
+      this.width = 80.0,
+      this.filteredCharacter});
 }
 
 class CharactersInitial extends CharactersState {
   final Character? character;
 
-  CharactersInitial({this.character}) : super(currentPage: 1, character: character, isLogged: true);
+  CharactersInitial({this.character})
+      : super(currentPage: 1, character: character, isLogged: true);
 }
 
 class LoadingCharacters extends CharactersState {
-  LoadingCharacters()
-      : super(isLogged: true);
+  LoadingCharacters() : super(isLogged: true);
 }
 
 class LoadingMoreCharacters extends CharactersState {
   final Character character;
-  LoadingMoreCharacters(this.character) : super(isLogged: true, isLoading: true, character: character);
+  LoadingMoreCharacters(this.character)
+      : super(isLogged: true, isLoading: true, character: character);
 }
 
 class LoadedCharacters extends CharactersState {
-
   final Character character;
   final int currentPage;
 
   LoadedCharacters(this.character, this.currentPage)
-      : super(character: character, isLogged: true, currentPage: currentPage, isLoading: false);
+      : super(
+            character: character,
+            isLogged: true,
+            currentPage: currentPage,
+            isLoading: false);
 }
+
+class PressedButton extends CharactersState {
+  final double width;
+
+  PressedButton(this.width) : super(width: width);
+}
+
+

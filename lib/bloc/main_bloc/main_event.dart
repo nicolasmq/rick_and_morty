@@ -3,11 +3,12 @@ part of 'main_bloc.dart';
 @immutable
 abstract class MainEvent {}
 
-class LoadCharactersEvent extends MainEvent {
+class LoadHomeEvent extends MainEvent {
 
-  final List<Result> characters;
+  final List<CharacterData> characters;
+  final List<EpisodeData> episodes;
 
-  LoadCharactersEvent(this.characters);
+  LoadHomeEvent(this.characters, this.episodes);
 
 }
 

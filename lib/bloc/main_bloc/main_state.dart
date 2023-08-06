@@ -4,24 +4,23 @@ part of 'main_bloc.dart';
 abstract class MainState {
   final bool isLogged;
   final Character? character;
-  final List<Episode>? episodes;
+  final Episode? episode;
 
-  const MainState({this.character, this.episodes, this.isLogged = false});
+  const MainState({this.character, this.episode, this.isLogged = false});
 }
 
 class MainInitial extends MainState {
-
- const MainInitial() : super(isLogged: true);
-
+  const MainInitial() : super(isLogged: true);
 }
 
-class LoadingCharacters extends MainState {
+class LoadingHome extends MainState {}
 
-}
-
-class LoadedCharacters extends MainState {
+class LoadedHome extends MainState {
   @override
   final Character character;
+  @override
+  final Episode episode;
 
-  const LoadedCharacters(this.character) : super(isLogged: true, character: character);
+  const LoadedHome(this.character, this.episode)
+      : super(isLogged: true, character: character, episode: episode);
 }

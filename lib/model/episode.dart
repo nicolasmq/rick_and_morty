@@ -5,6 +5,84 @@
 import 'dart:convert';
 
 class Episode {
+  final Info? info;
+  final List<EpisodeData>? episodeDataList;
+
+  Episode({
+    this.info,
+    this.episodeDataList,
+  });
+
+  Episode copyWith({
+    Info? info,
+    List<EpisodeData>? results,
+  }) =>
+      Episode(
+        info: info ?? this.info,
+        episodeDataList: results ?? this.episodeDataList,
+      );
+
+  factory Episode.fromJson(String str) => Episode.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Episode.fromMap(Map<String, dynamic> json) => Episode(
+    info: json["info"] == null ? null : Info.fromMap(json["info"]),
+    episodeDataList: json["results"] == null ? [] : List<EpisodeData>.from(json["results"]!.map((x) => EpisodeData.fromMap(x))),
+  );
+
+  Map<String, dynamic> toMap() => {
+    "info": info?.toMap(),
+    "results": episodeDataList == null ? [] : List<dynamic>.from(episodeDataList!.map((x) => x.toMap())),
+  };
+}
+
+class Info {
+  final int? count;
+  final int? pages;
+  final String? next;
+  final dynamic prev;
+
+  Info({
+    this.count,
+    this.pages,
+    this.next,
+    this.prev,
+  });
+
+  Info copyWith({
+    int? count,
+    int? pages,
+    String? next,
+    dynamic prev,
+  }) =>
+      Info(
+        count: count ?? this.count,
+        pages: pages ?? this.pages,
+        next: next ?? this.next,
+        prev: prev ?? this.prev,
+      );
+
+  factory Info.fromJson(String str) => Info.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Info.fromMap(Map<String, dynamic> json) => Info(
+    count: json["count"],
+    pages: json["pages"],
+    next: json["next"],
+    prev: json["prev"],
+  );
+
+  Map<String, dynamic> toMap() => {
+    "count": count,
+    "pages": pages,
+    "next": next,
+    "prev": prev,
+  };
+}
+
+class EpisodeData {
   final int? id;
   final String? name;
   final String? airDate;
@@ -13,7 +91,7 @@ class Episode {
   final String? url;
   final DateTime? created;
 
-  Episode({
+  EpisodeData({
     this.id,
     this.name,
     this.airDate,
@@ -23,7 +101,7 @@ class Episode {
     this.created,
   });
 
-  Episode copyWith({
+  EpisodeData copyWith({
     int? id,
     String? name,
     String? airDate,
@@ -32,7 +110,7 @@ class Episode {
     String? url,
     DateTime? created,
   }) =>
-      Episode(
+      EpisodeData(
         id: id ?? this.id,
         name: name ?? this.name,
         airDate: airDate ?? this.airDate,
@@ -42,11 +120,11 @@ class Episode {
         created: created ?? this.created,
       );
 
-  factory Episode.fromJson(String str) => Episode.fromMap(json.decode(str));
+  factory EpisodeData.fromJson(String str) => EpisodeData.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory Episode.fromMap(Map<String, dynamic> json) => Episode(
+  factory EpisodeData.fromMap(Map<String, dynamic> json) => EpisodeData(
     id: json["id"],
     name: json["name"],
     airDate: json["air_date"],

@@ -6,20 +6,20 @@ import 'dart:convert';
 
 class Character {
   final Info? info;
-  final List<Result>? results;
+  final List<CharacterData>? characterDataList;
 
   Character({
     this.info,
-    this.results,
+    this.characterDataList,
   });
 
   Character copyWith({
     Info? info,
-    List<Result>? results,
+    List<CharacterData>? results,
   }) =>
       Character(
         info: info ?? this.info,
-        results: results ?? this.results,
+        characterDataList: results ?? this.characterDataList,
       );
 
   factory Character.fromJson(String str) => Character.fromMap(json.decode(str));
@@ -28,12 +28,12 @@ class Character {
 
   factory Character.fromMap(Map<String, dynamic> json) => Character(
     info: json["info"] == null ? null : Info.fromMap(json["info"]),
-    results: json["results"] == null ? [] : List<Result>.from(json["results"]!.map((x) => Result.fromMap(x))),
+    characterDataList: json["results"] == null ? [] : List<CharacterData>.from(json["results"]!.map((x) => CharacterData.fromMap(x))),
   );
 
   Map<String, dynamic> toMap() => {
     "info": info?.toMap(),
-    "results": results == null ? [] : List<dynamic>.from(results!.map((x) => x.toMap())),
+    "results": characterDataList == null ? [] : List<dynamic>.from(characterDataList!.map((x) => x.toMap())),
   };
 }
 
@@ -82,7 +82,7 @@ class Info {
   };
 }
 
-class Result {
+class CharacterData {
   final int? id;
   final String? name;
   final String? status;
@@ -96,7 +96,7 @@ class Result {
   final String? url;
   final DateTime? created;
 
-  Result({
+  CharacterData({
     this.id,
     this.name,
     this.status,
@@ -111,7 +111,7 @@ class Result {
     this.created,
   });
 
-  Result copyWith({
+  CharacterData copyWith({
     int? id,
     String? name,
     String? status,
@@ -125,7 +125,7 @@ class Result {
     String? url,
     DateTime? created,
   }) =>
-      Result(
+      CharacterData(
         id: id ?? this.id,
         name: name ?? this.name,
         status: status ?? this.status,
@@ -140,11 +140,11 @@ class Result {
         created: created ?? this.created,
       );
 
-  factory Result.fromJson(String str) => Result.fromMap(json.decode(str));
+  factory CharacterData.fromJson(String str) => CharacterData.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory Result.fromMap(Map<String, dynamic> json) => Result(
+  factory CharacterData.fromMap(Map<String, dynamic> json) => CharacterData(
     id: json["id"],
     name: json["name"],
     status: json["status"],
