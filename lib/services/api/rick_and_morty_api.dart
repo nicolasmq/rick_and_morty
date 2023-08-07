@@ -16,18 +16,24 @@ class RickAndMortyApi {
 
       return Character.fromMap(response.data);
     } catch (e) {
-      print(e.toString());
+      print(e);
     }
     return Character();
   }
 
-  Future<Character> filterCharacters({String? name}) async {
+  Future<Character?> filterCharacters({String? name}) async {
     print('Filter Character');
     Response response;
-    response = await dio.get('https://rickandmortyapi.com/api/character/?name=$name');
-    print(response.data);
+    try {
+      response =
+      await dio.get('https://rickandmortyapi.com/api/character/?name=$name');
+      print(response.data);
 
-    return Character.fromMap(response.data);
+      return Character.fromMap(response.data);
+    } catch (e) {
+      print(e);
+    }
+    return null;
   }
 
   Future<Episode> getEpisodes({int? currentPage = 1}) async {

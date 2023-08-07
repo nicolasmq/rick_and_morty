@@ -52,9 +52,6 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
           currentPage));
       state.currentPage = currentPage;
     });
-    on<ScaleContainerEvent>((event, emit)  {
-      emit(PressedButton(event.width));
-    });
 
   }
   Future fetchData() async {

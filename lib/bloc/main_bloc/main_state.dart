@@ -10,7 +10,6 @@ abstract class MainState {
 }
 
 class MainInitial extends MainState {
-  const MainInitial() : super(isLogged: true);
 }
 
 class LoadingHome extends MainState {}

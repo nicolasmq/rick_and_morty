@@ -1,12 +1,12 @@
-import 'dart:math';
 
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:choppi_prueba_tecnica/bloc/login_bloc/login_bloc.dart';
 import 'package:choppi_prueba_tecnica/bloc/main_bloc/main_bloc.dart';
 import 'package:choppi_prueba_tecnica/presentation/screens/loading_screen.dart';
 import 'package:choppi_prueba_tecnica/presentation/widgets/characters_carrousel.dart';
 import 'package:choppi_prueba_tecnica/presentation/widgets/episodes_carrousel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mainBloc = BlocProvider.of<MainBloc>(context, listen: false);
+    final loginBloc = BlocProvider.of<LoginBloc>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -22,6 +23,7 @@ class HomeScreen extends StatelessWidget {
             if (state is LoadedHome) {
               return Stack(
                 children: [
+
                   Column(
                     children: [
                       Image.asset(
@@ -82,21 +84,26 @@ class HomeScreen extends StatelessWidget {
                       )),
                     ],
                   ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: FloatingActionButton.small(
+                      onPressed: () {
+                        loginBloc.add(SignOutEvent());
+                        mainBloc.add(MainInitialEvent());
+                        context.goNamed('main');
+                      },
+                      backgroundColor: Colors.white38,
+                      foregroundColor: Colors.black,
+                      child: Icon(Icons.exit_to_app_outlined),
+                    ),
+                  ),
                 ],
               );
             } else if (state is LoadingHome) {
               return LoadingScreen();
             } else {
               mainBloc.add(LoadHomeEvent(const [], const []));
-              return const Scaffold(
-                backgroundColor: Colors.black,
-                body: Center(
-                  child: Text(
-                    'Al parecer ocurrió un error',
-                    style: TextStyle(color: Colors.white, fontSize: 22.0),
-                  ),
-                ),
-              );
+              return Container();
             }
           },
         ),

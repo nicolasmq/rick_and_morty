@@ -10,5 +10,5 @@ class RickAndMortyRepository {
 
   Future<Character> getCharacters({int? currentPage = 1}) => _rickAndMortyApi.getCharacters(currentPage: currentPage);
   Future<Episode> getEpisodes({int? currentPage = 1}) => _rickAndMortyApi.getEpisodes(currentPage: currentPage);
-  Future<Character> filterCharacters({String? name}) => _rickAndMortyApi.filterCharacters(name: name);
+  Future<Character?> filterCharacters({String? name}) => _rickAndMortyApi.filterCharacters(name: name);
 }

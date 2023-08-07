@@ -57,16 +57,13 @@ class CharactersCarrousel extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20.0)),
                       child: Stack(
                         children: [
-                          Hero(
-                            tag: character.id!,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20.0),
-                              child: CachedNetworkImage(
-                                height: 270.0,
-                                width: 150.0,
-                                fit: BoxFit.cover,
-                                imageUrl: character.image!,
-                              ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20.0),
+                            child: CachedNetworkImage(
+                              height: 270.0,
+                              width: 150.0,
+                              fit: BoxFit.cover,
+                              imageUrl: character.image!,
                             ),
                           ),
                           Positioned(
@@ -75,8 +72,9 @@ class CharactersCarrousel extends StatelessWidget {
                             child: Container(
                               padding: EdgeInsets.symmetric(vertical: 10.0),
                               height: 70.0,
-                              decoration: const BoxDecoration(
-                                  gradient: LinearGradient(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                  gradient: const LinearGradient(
                                       begin: Alignment.bottomCenter,
                                       end: Alignment.topCenter,
                                       colors: [

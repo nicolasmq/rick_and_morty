@@ -62,7 +62,7 @@ class CharactersScreen extends StatelessWidget {
                   );
                 } else if (state is LoadingCharacters) {
                   return Center(child: Container(
-                    height: 50.0,
+                    height: 70.0,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(image: AssetImage("assets/images/loading.gif",), fit: BoxFit.scaleDown,opacity: 0.8)
@@ -103,7 +103,7 @@ class CharactersScreen extends StatelessWidget {
                           visible: state.isLoading,
                           child: const FloatingActionButton(
                             mini: true,
-                            backgroundColor: Colors.white,
+                            backgroundColor: Colors.white60,
                             foregroundColor: Colors.black,
                             onPressed: null,
                             child: SizedBox(

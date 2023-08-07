@@ -47,10 +47,4 @@ class LoadedCharacters extends CharactersState {
             isLoading: false);
 }
 
-class PressedButton extends CharactersState {
-  final double width;
-
-  PressedButton(this.width) : super(width: width);
-}
-
 

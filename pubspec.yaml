@@ -41,6 +41,7 @@ dependencies:
   dio:
   cached_network_image:
   animations: ^2.0.7
+  shared_preferences:
 
 
 dev_dependencies:

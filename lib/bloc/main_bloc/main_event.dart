@@ -12,4 +12,8 @@ class LoadHomeEvent extends MainEvent {
 
 }
 
+class MainInitialEvent extends MainEvent{
+
+}
+
 

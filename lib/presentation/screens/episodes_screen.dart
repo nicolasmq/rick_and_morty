@@ -61,7 +61,7 @@ class EpisodesScreen extends StatelessWidget {
                   );
                 } else if (state is LoadingEpisodes) {
                   return Center(child: Container(
-                    height: 50.0,
+                    height: 70.0,
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(image: AssetImage("assets/images/loading.gif",), fit: BoxFit.scaleDown,opacity: 0.8)
@@ -232,7 +232,7 @@ class EpisodeCard extends StatelessWidget {
                           'Episode:',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 14.0,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.w400),
                         ),
                         EpisodeCardChip(label: episode!.episode!)
@@ -244,7 +244,7 @@ class EpisodeCard extends StatelessWidget {
                           'Air date:',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 14.0,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.w500),
                         ),
                         EpisodeCardChip(
@@ -295,7 +295,7 @@ class EpisodeCardChip extends StatelessWidget {
       child: Text(
         label!,
         style: const TextStyle(
-            color: Colors.white, fontSize: 14.0, fontWeight: FontWeight.w400),
+            color: Colors.white, fontSize: 11.0, fontWeight: FontWeight.w400),
       ),
     );
   }

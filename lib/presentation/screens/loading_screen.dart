@@ -16,7 +16,7 @@ class LoadingScreen extends StatelessWidget {
                 const SizedBox(height: 40.0 ,),
                 Center(
                     child: Container(
-                      height: 50.0,
+                      height: 70.0,
                       decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(

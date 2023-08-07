@@ -3,6 +3,9 @@ part of 'search_character_bloc.dart';
 @immutable
 abstract class SearchCharacterEvent {}
 
+class SearchInitialEvent extends SearchCharacterEvent {
+}
+
 class FindCharacterEvent extends SearchCharacterEvent {
 
   final String name;
@@ -11,10 +14,11 @@ class FindCharacterEvent extends SearchCharacterEvent {
 
 }
 
-class ScaleContainerEvent extends SearchCharacterEvent {
+class CharacterNotFoundEvent extends SearchCharacterEvent {
 
-  final double width;
+  final String name;
 
-  ScaleContainerEvent(this.width);
+  CharacterNotFoundEvent(this.name);
 
 }
+
