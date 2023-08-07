@@ -1,6 +1,4 @@
 
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:choppi_prueba_tecnica/bloc/characters_bloc/characters_bloc.dart';
 import 'package:choppi_prueba_tecnica/bloc/episodes_bloc/episodes_bloc.dart';
 import 'package:choppi_prueba_tecnica/model/episode.dart';
 import 'package:flutter/material.dart';

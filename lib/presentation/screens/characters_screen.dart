@@ -152,7 +152,7 @@ class CharacterCard extends StatelessWidget {
       },
       child: OpenContainer(
         middleColor: Colors.black,
-        transitionDuration: Duration(milliseconds: 650),
+        transitionDuration: const Duration(milliseconds: 650),
         openBuilder: (context, action) =>
             CharacterScreen(character: character!),
         onClosed: (data) async {},
@@ -224,7 +224,7 @@ class CharacterCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       Row(
@@ -233,7 +233,7 @@ class CharacterCard extends StatelessWidget {
                             'Status:',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 14.0,
+                                fontSize: 12.0,
                                 fontWeight: FontWeight.w400),
                           ),
                           CharacterCardChip(label: character!.status!)
@@ -243,10 +243,12 @@ class CharacterCard extends StatelessWidget {
                         children: [
                           const Text(
                             'Species:',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w500),
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400),
                           ),
                           CharacterCardChip(
                               label: character!.species)
@@ -258,14 +260,13 @@ class CharacterCard extends StatelessWidget {
                             'Episodes:',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w500),
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400),
                           ),
                           CharacterCardChip(
                               label: character!.episode!.length.toString())
                         ],
                       ),
-
                     ],
                   ),
                 ),
@@ -290,14 +291,17 @@ class CharacterCardChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
-      padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 5.0),
+      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
       decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.2),
           borderRadius: BorderRadius.circular(5.0)),
       child: Text(
         label!,
+        overflow: TextOverflow.fade,
+        maxLines: 1,
         style: const TextStyle(
-            color: Colors.white, fontSize: 14.0, fontWeight: FontWeight.w400),
+            overflow: TextOverflow.fade,
+            color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.w400),
       ),
     );
   }

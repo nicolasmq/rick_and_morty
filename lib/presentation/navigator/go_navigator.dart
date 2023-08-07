@@ -21,7 +21,7 @@ class GoNavigator {
     GoRoute(
       name: 'main',
       path: '/',
-      builder: (context, state) => MainScreen(preferences: null,),
+      builder: (context, state) => MainScreen(),
       routes: [
         GoRoute(
           name: 'characters',

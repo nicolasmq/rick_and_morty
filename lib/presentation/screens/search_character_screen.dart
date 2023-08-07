@@ -207,7 +207,7 @@ class SearchButton extends StatelessWidget {
           child: AnimatedContainer(
             padding: EdgeInsets.symmetric(
                 horizontal: state.width == 300.0 ? 20.0 : 0.0),
-            duration: Duration(milliseconds: 1000),
+            duration: const Duration(milliseconds: 1000),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
                 color: Colors.white60),
@@ -245,7 +245,7 @@ class SearchButton extends StatelessWidget {
                                     searchCharactersBloc.editingController
                                         .clear();
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.close,
                                     color: Colors.white54,
                                   ))),
