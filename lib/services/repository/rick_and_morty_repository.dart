@@ -1,7 +1,7 @@
 
 
-import 'package:choppi_prueba_tecnica/model/character.dart';
-import 'package:choppi_prueba_tecnica/model/episode.dart';
+import 'package:choppi_prueba_tecnica/characters/models/character.dart';
+import 'package:choppi_prueba_tecnica/episodes/models/episode.dart';
 import 'package:choppi_prueba_tecnica/services/api/rick_and_morty_api.dart';
 
 class RickAndMortyRepository {
