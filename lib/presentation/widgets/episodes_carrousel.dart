@@ -30,7 +30,8 @@ class EpisodesCarrousel extends StatelessWidget {
                   onPressed: () {
                     context.goNamed('episodes');
                   },
-                  child: const Text('Ver todos'),
+                  child: const Text('Ver todos',
+                      style: TextStyle(color: Colors.white),),
                 ),
               ],
             ),

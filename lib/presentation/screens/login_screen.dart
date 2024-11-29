@@ -40,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                           await SharedPreferences.getInstance();
                       loginBloc.add(SignInEvent());
                     },
-                    child: const Text('Ingresar'))
+                    child: const Text('Ingresar', style: TextStyle(color: Colors.white),))
               ],
             ),
           ],

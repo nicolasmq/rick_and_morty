@@ -212,16 +212,14 @@ class CharacterCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            character!.name!,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w700),
-                          ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          character!.name!,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w700),
                         ),
                       ),
                       const SizedBox(
@@ -291,7 +289,7 @@ class CharacterCardChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
-      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 4.0),
       decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.2),
           borderRadius: BorderRadius.circular(5.0)),

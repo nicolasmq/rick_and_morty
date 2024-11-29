@@ -33,7 +33,8 @@ class CharactersCarrousel extends StatelessWidget {
                     onPressed: () {
                       context.goNamed('characters');
                     },
-                    child: const Text('Ver todos'),
+                    child: const Text('Ver todos',
+                        style: TextStyle(color: Colors.white)),
                   ),
                 ],
               ),
